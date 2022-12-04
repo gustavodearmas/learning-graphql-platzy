@@ -1,3 +1,4 @@
+# Esto es un CustomType
 type Product {
     id: ID
     name: String
@@ -7,4 +8,5 @@ type Product {
 
 type Query {
     getProducts: [Product]
+    getProductID(id: ID): Product
 }

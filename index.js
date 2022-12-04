@@ -1,10 +1,10 @@
 "use strict";
-import { buildSchema } from "graphql";
+import { makeExecutableSchema } from "@graphql-tools/schema";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
-import  fs  from 'fs';
-import path, { join }  from "path";
-import { fileURLToPath } from 'url';
+import fs from "fs";
+import path, { join } from "path";
+import { fileURLToPath } from "url";
 import resolvers from "./lib/resolvers.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -13,9 +13,15 @@ const app = express();
 const PORT = process.env.port || 3000;
 
 // Definiendo el esquema
-const schema = buildSchema(
-    fs.readFileSync(join(__dirname, 'lib', 'schema.graphql'), 'utf-8')
+const typeDefs = fs.readFileSync(
+    join(__dirname, "lib", "schema.graphql"),
+    "utf-8"
 );
+
+const schema = makeExecutableSchema({
+    typeDefs,
+    resolvers,
+});
 
 app.use(
     "/graphql",
