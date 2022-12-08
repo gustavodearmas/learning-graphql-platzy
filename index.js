@@ -1,14 +1,13 @@
 "use strict";
-import { makeExecutableSchema } from "@graphql-tools/schema";
-import express from "express";
-import { graphqlHTTP } from "express-graphql";
-import fs from "fs";
-import path, { join } from "path";
-import { fileURLToPath } from "url";
-import resolvers from "./lib/resolvers.js";
+const { makeExecutableSchema } = require('@graphql-tools/schema')
+const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
+const fs = require("fs");
+const { join } = require("path");
+const { fileURLToPath } = require("url");
+const resolvers = require("./lib/resolvers.js");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
 const app = express();
 const PORT = process.env.port || 3000;
 
@@ -45,3 +44,5 @@ app.listen(PORT, () => {
 //CORRECIÓN DE ERRORES
 // instarlar npm i standard -D
 // correr el comando npm run lint-fix
+
+

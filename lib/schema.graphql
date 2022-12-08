@@ -1,12 +1,11 @@
 # Esto es un CustomType
 type Product {
-    id: ID
+    _id: ID
     name: String
     description: String
-    imagen: String
 }
 
 type Query {
     getProducts: [Product]
-    getProductID(id: ID): Product
+    getProductID(_id: ID): Product
 }
