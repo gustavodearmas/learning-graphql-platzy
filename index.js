@@ -4,8 +4,8 @@ const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const fs = require("fs");
 const { join } = require("path");
-const { fileURLToPath } = require("url");
 const resolvers = require("./lib/resolvers.js");
+require('dotenv').config()
 
 
 const app = express();
