@@ -1,12 +1,11 @@
 "use strict";
-const { makeExecutableSchema } = require('@graphql-tools/schema')
+const { makeExecutableSchema } = require("@graphql-tools/schema");
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const fs = require("fs");
 const { join } = require("path");
 const resolvers = require("./lib/resolvers.js");
-require('dotenv').config()
-
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.port || 3000;
@@ -44,5 +43,3 @@ app.listen(PORT, () => {
 //CORRECIÓN DE ERRORES
 // instarlar npm i standard -D
 // correr el comando npm run lint-fix
-
-

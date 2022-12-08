@@ -9,3 +9,12 @@ type Query {
     getProducts: [Product]
     getProductID(_id: ID): Product
 }
+
+input ProductInput {
+    name: String!
+    description: String
+}
+
+type Mutation {
+    createProduct(input: ProductInput): Product
+}
