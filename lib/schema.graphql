@@ -15,6 +15,8 @@ input ProductInput {
     description: String
 }
 
+
+
 type Mutation {
     createProduct(input: ProductInput): Product
 }
