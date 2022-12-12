@@ -1,5 +1,6 @@
 "use strict";
 const { makeExecutableSchema } = require("@graphql-tools/schema");
+const Cors = require("cors")
 const express = require("express");
 const { graphqlHTTP } = require("express-graphql");
 const fs = require("fs");

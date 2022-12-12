@@ -15,8 +15,15 @@ input ProductInput {
     description: String
 }
 
+input EditProductInput {
+    name: String
+    description: String
+}
+
 
 
 type Mutation {
     createProduct(input: ProductInput): Product
+    deleteProduct(_id: ID!): Product
+    editProduct(_id: ID!, input: EditProductInput): Product
 }
