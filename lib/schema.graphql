@@ -3,7 +3,7 @@
 # Products
 type Product {
     _id: ID
-    name: String
+    name: String!
     description: String
 }
 
