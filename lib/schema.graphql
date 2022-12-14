@@ -1,13 +1,10 @@
-# Esto es un CustomType
+# _______________________  Esto es un CustomType  ________________________
+
+# Products
 type Product {
     _id: ID
     name: String
     description: String
-}
-
-type Query {
-    getProducts: [Product]
-    getProductID(_id: ID): Product
 }
 
 input ProductInput {
@@ -20,10 +17,41 @@ input EditProductInput {
     description: String
 }
 
+# Invoice
+type Invoice{
+    _id: ID
+    user: String!
+    date: String
+    products: [Product]
+}
 
+input InvoiceInput {
+    user: String!
+    date: String
+    products: [ProductInput]
+}
 
+input EditInvoiceInput {
+    user: String
+    date: String
+}
+
+# ________________________________________________________________
+
+type Query {
+    # Products
+    getProducts: [Product]
+    getProductID(_id: ID): Product
+    # Invoice
+    getInvoices: [Invoice]
+    getInvoiceID(_id: ID): Invoice
+}
 type Mutation {
+    # Products
     createProduct(input: ProductInput): Product
     deleteProduct(_id: ID!): Product
     editProduct(_id: ID!, input: EditProductInput): Product
+    # Invoice
+    createInvoice(input: InvoiceInput): Invoice
+    addProductInvoice(productID: ID!, invoiceID: ID!): Invoice
 }
